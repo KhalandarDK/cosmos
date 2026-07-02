@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  /* --------------------------------------------------------------------
+     COLOR
+     RGB triplets (no commas) so Tailwind can apply opacity modifiers,
+     e.g. bg-brand/40, text-text-dark/70.
+     -------------------------------------------------------------------- */
+  --c-bg-main: 251 250 248; /* page background — warm off-white */
+  --c-bg-accent: 246 244 240; /* secondary panel background */
+  --c-bg-dark: 22 41 33; /* deep estate green — dark sections, footer */
+
+  --c-text-dark: 24 35 30; /* primary copy on light backgrounds */
+  --c-text-medium: 84 96 89; /* secondary / supporting copy */
+  --c-text-light: 251 250 248; /* copy on dark backgrounds */
+
+  --c-line-light: 228 219 210; /* hairlines on light backgrounds */
+  --c-line-medium: 199 187 170;
+  --c-line-dark: 86 104 95; /* hairlines on dark backgrounds */
+
+  --c-brand: 116 100 47; /* olive-gold — CTAs, links, accents */
+  --c-brand-invert: 202 186 143; /* brand accent for dark backgrounds */
+
+  --c-error: 178 58 46;
+
+  /* --------------------------------------------------------------------
+     TYPEFACES
+     Loaded via next/font in app/layout.js and exposed as CSS variables
+     (--font-display / --font-body) so this file stays the single place
+     that names them.
+     -------------------------------------------------------------------- */
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Roboto Flex", ui-sans-serif, system-ui, -apple-system,
+    sans-serif;
+  --display-weight: 440;
+
+  /* --------------------------------------------------------------------
+     FLUID TYPE SCALE
+     clamp(min, fluid, max) so type scales smoothly between mobile and
+     desktop viewports without breakpoint jumps.
+     -------------------------------------------------------------------- */
+  --t-h1: clamp(2rem, 1.4rem + 2.6vw, 4.75rem);
+  --t-h2: clamp(1.75rem, 1.3rem + 2vw, 3.75rem);
+  --t-h3: clamp(1.5rem, 1.2rem + 1.4vw, 2.75rem);
+  --t-h4: clamp(1.25rem, 1.05rem + 0.9vw, 2rem);
+  --t-h5: clamp(1.0625rem, 0.94rem + 0.55vw, 1.5rem);
+  --t-intro: clamp(1.125rem, 0.95rem + 0.8vw, 1.75rem);
+  --t-body: clamp(0.9375rem, 0.89rem + 0.2vw, 1.125rem);
+  --t-input: clamp(1rem, 0.93rem + 0.2vw, 1.125rem);
+  --t-footnote: clamp(0.75rem, 0.71rem + 0.16vw, 0.9375rem);
+  --t-brow: clamp(0.6875rem, 0.67rem + 0.06vw, 0.75rem);
+  --t-brow-sm: clamp(0.5625rem, 0.5rem + 0.1vw, 0.625rem);
+  --t-utility: clamp(0.75rem, 0.73rem + 0.06vw, 0.8125rem);
+
+  /* --------------------------------------------------------------------
+     FLUID SPACING SCALE
+     Same clamp approach for section rhythm and gaps. Named by t-shirt
+     size rather than pixel value, so usage stays meaningful.
+     -------------------------------------------------------------------- */
+  --space-2xs: clamp(0.25rem, 0.15rem + 0.5vw, 0.9375rem);
+  --space-xs: clamp(0.5625rem, 0.44rem + 0.6vw, 1.375rem);
+  --space-s: clamp(0.8125rem, 0.66rem + 0.7vw, 1.8125rem);
+  --space-m: clamp(1.0625rem, 0.82rem + 1.2vw, 2.75rem);
+  --space-l: clamp(1.625rem, 1.33rem + 1.4vw, 3.625rem);
+  --space-xl: clamp(2.125rem, 1.65rem + 2.4vw, 5.4375rem);
+  --space-2xl: clamp(3.1875rem, 2.6rem + 2.9vw, 7.25rem);
+  --space-3xl: clamp(4.25rem, 3.3rem + 4.7vw, 10.875rem);
+
+  /* page-padding: the horizontal gutter used to inset full-bleed sections */
+  --space-pp: clamp(1.1875rem, -0.2rem + 5.2vw, 6.5rem);
+
+  --space-header-height: clamp(4.0625rem, 3.67rem + 1.6vw, 6.25rem);
+  --space-logo-width: clamp(8rem, 7.2rem + 3.2vw, 11.5rem);
+  --space-btn-height: clamp(2.8125rem, 2.75rem + 0.23vw, 3.125rem);
+
+  /* --------------------------------------------------------------------
+     MOTION
+     -------------------------------------------------------------------- */
+  --ease-signature: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --duration-base: 0.4s;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(var(--c-bg-main));
+  color: rgb(var(--c-text-dark));
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid rgb(var(--c-brand));
+  outline-offset: 3px;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--t-brow);
+  font-weight: 630;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.link-underline {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.08em;
+  transition: text-decoration-color var(--duration-base) var(--ease-signature);
+}
+.link-underline:hover,
+.link-underline:focus {
+  text-decoration-color: currentColor;
+}
+
+.prose-body h1,
+.prose-body h2 {
+  font-size: var(--t-h4);
+  color: rgb(var(--c-text-dark));
+  margin-bottom: var(--space-s);
+  margin-top: var(--space-s);
+}
+.prose-body h3,
+.prose-body h4 {
+  font-family: var(--font-body);
+  font-size: var(--t-brow);
+  font-weight: 630;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: var(--space-s);
+  margin-bottom: var(--space-2xs);
+}
+.prose-body p,
+.prose-body ul,
+.prose-body ol {
+  margin-bottom: var(--space-s);
+}
+.prose-body a {
+  color: rgb(var(--c-brand));
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+
+.hero-reveal {
+  --progress: 0;
+  --hero-h-reveal: calc(var(--space-2xl) * var(--progress));
+  --hero-v-reveal: calc(9vh * var(--progress));
+  --hero-scale: calc(1 - var(--progress) * 0.18);
+  --hero-radius: calc(var(--space-l) * var(--progress));
+
+  clip-path: inset(
+    var(--hero-v-reveal) var(--hero-h-reveal) var(--hero-v-reveal)
+      var(--hero-h-reveal) round var(--hero-radius)
+  );
+  transform: scale(var(--hero-scale));
+  transition: clip-path 0.1s linear, transform 0.1s linear;
+  will-change: clip-path, transform;
+}
+
+.hero-reveal .hero-copy {
+  opacity: clamp(0, calc(1 - var(--progress) * 3), 1);
+  transform: translateY(calc(var(--progress) * -1.5rem));
+  transition: opacity 0.1s linear, transform 0.1s linear;
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal {
+    clip-path: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero-reveal .hero-copy {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
