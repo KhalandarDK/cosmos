@@ -67,7 +67,7 @@ function SpecialOffers() {
         {/* IMAGE SECTION */}
         <div className="relative mx-auto w-full max-w-xl p-6 lg:p-10">
           <div
-            className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-xl cursor-grab select-none touch-pan-y active:cursor-grabbing"
+            className="relative aspect-[4/5] overflow-hidden  shadow-xl cursor-grab select-none touch-pan-y active:cursor-grabbing"
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={endDrag}

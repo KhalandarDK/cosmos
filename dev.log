@@ -1,0 +1,48 @@
+
+> Fortune Cosmos@1.0.0 dev
+> next dev --hostname 127.0.0.1 --port 3001
+
+  ▲ Next.js 14.2.35
+  - Local:        http://127.0.0.1:3001
+  - Network:      http://127.0.0.1:3001
+
+ ✓ Starting...
+ ✓ Ready in 3.2s
+ ○ Compiling / ...
+ ✓ Compiled / in 6.7s (634 modules)
+ GET / 200 in 7264ms
+ GET / 200 in 73ms
+ ○ Compiling /properties ...
+ ✓ Compiled /properties in 696ms (620 modules)
+ GET /properties 200 in 1105ms
+ ✓ Compiled /_not-found in 244ms (609 modules)
+ GET /images/fp-1.jpg 404 in 344ms
+ ⨯ The requested resource isn't a valid image for /images/fp-1.jpg received null
+ GET /images/fp-2.jpg 404 in 347ms
+ ⨯ The requested resource isn't a valid image for /images/fp-2.jpg received null
+ GET /images/fp-3.jpg 404 in 329ms
+ ⨯ The requested resource isn't a valid image for /images/fp-3.jpg received null
+ GET /images/fp-1.jpg 404 in 38ms
+ ⨯ The requested resource isn't a valid image for /images/fp-1.jpg received null
+ GET /images/fp-2.jpg 404 in 41ms
+ ⨯ The requested resource isn't a valid image for /images/fp-2.jpg received null
+ GET /images/fp-3.jpg 404 in 58ms
+ ⨯ The requested resource isn't a valid image for /images/fp-3.jpg received null
+ GET / 200 in 95ms
+ GET /properties 200 in 61ms
+ GET / 200 in 91ms
+ GET /images/fp-3.jpg 404 in 169ms
+ ⨯ The requested resource isn't a valid image for /images/fp-3.jpg received null
+ GET /images/fp-2.jpg 404 in 44ms
+ ⨯ The requested resource isn't a valid image for /images/fp-2.jpg received null
+ GET / 200 in 168ms
+ GET /images/fp-3.jpg 404 in 34ms
+ ⨯ The requested resource isn't a valid image for /images/fp-3.jpg received null
+ GET / 200 in 81ms
+ GET / 200 in 50ms
+ GET /properties 200 in 93ms
+ GET / 200 in 69ms
+ ○ Compiling /properties/[slug] ...
+ ✓ Compiled /properties/[slug] in 702ms (628 modules)
+ ✓ Compiled /about in 228ms (616 modules)
+ ✓ Compiled /contact in 319ms (618 modules)

@@ -8,6 +8,7 @@ export const properties = [
     beds: 6,
     baths: 7,
     sqft: "9,200",
+    image: "/images/fp-1.jpg",
     description:
       "A sprawling ridge-top estate overlooking eighteen planted acres, with a restored 1920s farmhouse, guest cottage, and a private tasting cellar.",
   },
@@ -20,6 +21,7 @@ export const properties = [
     beds: 5,
     baths: 6,
     sqft: "7,450",
+    image: "/images/fp-2.jpg",
     description:
       "Floor-to-ceiling glass frames the harbor from every principal room, with a private dock, infinity pool, and a rooftop entertaining deck.",
   },
@@ -32,6 +34,7 @@ export const properties = [
     beds: 5,
     baths: 5,
     sqft: "6,100",
+    image: "/images/fp-3.jpg",
     description:
       "Set among heritage oaks, a low-slung contemporary build pairs board-formed concrete with warm American walnut and a courtyard pool.",
   },

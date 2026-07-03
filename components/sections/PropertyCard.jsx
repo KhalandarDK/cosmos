@@ -1,19 +1,31 @@
+import Image from "next/image";
 import Link from "next/link";
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
 import Badge from "@/components/ui/Badge";
 
-export default function PropertyCard({ property }) {
+export default function PropertyCard({ property, className = "" }) {
   return (
-    <Link 
+    <Link
       href={`/properties/${property.slug}`}
-      className="group flex flex-col gap-4"
+      className={`group flex flex-col gap-4 ${className}`}
     >
       <div className="relative overflow-hidden">
-        <PlaceholderImage
-          label={`${property.name} — Exterior`}
-          ratio="aspect-[4/3]"
-          className="transition-transform duration-[900ms] ease-signature group-hover:scale-105"
-        />
+        {property.image ? (
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <Image
+              src={property.image}
+              alt={`${property.name} — Exterior`}
+              fill
+              className="object-cover transition-transform duration-[900ms] ease-signature group-hover:scale-105"
+            />
+          </div>
+        ) : (
+          <PlaceholderImage
+            label={`${property.name} — Exterior`}
+            ratio="aspect-[4/3]"
+            className="transition-transform duration-[900ms] ease-signature group-hover:scale-105"
+          />
+        )}
         <Badge tone="dark" className="absolute left-4 top-4">
           {property.type}
         </Badge>
