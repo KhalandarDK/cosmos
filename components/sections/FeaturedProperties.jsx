@@ -15,11 +15,11 @@ export default function FeaturedProperties() {
           />
           <ArrowLink href="/properties">View all listings</ArrowLink>
         </div>
-        <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
+        <div className="grid gap-12 lg:grid-cols-[2fr_1fr]">
           {featuredProperties.map((property, index) => (
-            <PropertyCard
+            <PropertyCard  
               key={property.slug}
-              property={property}
+              property={property} 
               className={index === 0 ? "lg:row-span-2" : ""}
             />
           ))}

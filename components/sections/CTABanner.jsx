@@ -1,16 +1,17 @@
-import Image from "next/image";
 import Button from "@/components/ui/Button";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 
 export default function CTABanner() {
   return (
     <section className="relative flex min-h-[95vh] w-full items-center overflow-hidden bg-bg-dark text-text-light">
-      <Image
+      <ParallaxImage
         src="/images/cta-banner.jpg"
         alt="Estate grounds, golden hour"
-        fill
         priority
-        className="absolute inset-0 h-full w-full object-cover opacity-70"
         sizes="100vw"
+        className="absolute inset-0 h-full w-full"
+        imageClassName="opacity-70"
+        intensity={140}
       />
       <div className="pointer-events-none absolute inset-0 bg-bg-dark/50" />
       <div className="relative z-10 mx-auto flex w-full max-w-container flex-col items-center gap-l px-pp py-3xl text-center">
