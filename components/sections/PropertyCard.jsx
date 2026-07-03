@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 import Badge from "@/components/ui/Badge";
 
 export default function PropertyCard({ property, className = "" }) {
@@ -11,14 +11,13 @@ export default function PropertyCard({ property, className = "" }) {
     >
       <div className="relative overflow-hidden">
         {property.image ? (
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <Image
-              src={property.image}
-              alt={`${property.name} — Exterior`}
-              fill
-              className="object-cover transition-transform duration-[900ms] ease-signature group-hover:scale-105"
-            />
-          </div>
+          <ParallaxImage
+            src={property.image}
+            alt={`${property.name} — Exterior`}
+            className="aspect-[4/3]"
+            imageClassName="transition-transform duration-[900ms] ease-signature group-hover:scale-105"
+            intensity={40}
+          />
         ) : (
           <PlaceholderImage
             label={`${property.name} — Exterior`}
@@ -30,7 +29,7 @@ export default function PropertyCard({ property, className = "" }) {
           {property.type}
         </Badge>
       </div>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-2">
         <div className="flex items-start justify-between gap-4">
           <h3 className="text-h5 font-display italic text-text-dark">
             {property.name}

@@ -2,7 +2,7 @@ import { Fraunces, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 // Display face: an editorial serif, used sparingly for headlines —
 // stands in for the brand's custom display font referenced in globals.css.
 const displayFont = Fraunces({
@@ -37,9 +37,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
       <body className="min-h-screen antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <SmoothScrollProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

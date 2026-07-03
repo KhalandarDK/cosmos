@@ -6,6 +6,7 @@ import Section from "@/components/ui/Section";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import ArrowLink from "@/components/ui/ArrowLink";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const OFFERS = [
@@ -67,13 +68,13 @@ function SpecialOffers() {
         {/* IMAGE SECTION */}
         <div className="relative mx-auto w-full max-w-xl p-6 lg:p-10">
           <div
-            className="relative aspect-[4/5] overflow-hidden  shadow-xl cursor-grab select-none touch-pan-y active:cursor-grabbing"
+            className="relative aspect-[4/5] overflow-hidden shadow-xl cursor-grab select-none touch-pan-y active:cursor-grabbing"
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={endDrag}
             onPointerLeave={endDrag}
           >
-            {/* SLIDE WRAPPER */}
+            {/* SLIDE WRAPPER — handles horizontal drag */}
             <div
               className="relative h-full w-full"
               style={{
@@ -83,13 +84,14 @@ function SpecialOffers() {
                   : "transform 350ms ease",
               }}
             >
-              <Image
+              {/* ParallaxImage handles vertical scroll drift */}
+              <ParallaxImage
                 src={offer.src}
                 alt={offer.alt}
-                fill
+                className="h-full w-full"
                 sizes="(min-width: 1024px) 28rem, 90vw"
-                className="object-cover"
                 priority={active === 0}
+                intensity={60}
               />
             </div>
 
@@ -139,28 +141,24 @@ function SpecialOffers() {
 export default function IntroSplit() {
   return (
     <>
-      {/* Elegant Accommodations split */}
       <Section tone="main" className="!pt-0">
         <SectionHeading
           eyebrow="Our Approach"
           heading="Napa All in One Place"
           intro="Aravalle is your destination for everything real estate, a sprawling advisory unlike anywhere else. Uncover the essence of wine country with ease, with the finest homes and guidance at your fingertips."
           align="center"
-          className="mx-auto"
+          className="mx-auto m-3xl max-w-3xl"
         />
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
-          <div className="flex flex-col gap-l">
-            <div className="relative aspect-[4/3] w-full overflow-hidden">
-              <Image
-                src="/images/accommodations-suite.jpg"
-                alt="Primary suite — vineyard-view bedroom"
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="flex flex-col gap-4">
-              <h3 className="text-h3 text-text-dark">Elegant Accommodations</h3>
+        <div className="grid gap-y-2xl gap-x-2xl lg:grid-cols-2 lg:items-start">
+          <div className="flex flex-col gap-xl">
+            <ParallaxImage
+              src="/images/accommodations-suite.jpg"
+              alt="Primary suite — vineyard-view bedroom"
+              className="aspect-[4/3] w-full"
+              intensity={100}
+            />
+            <div className="flex flex-col gap-6">
+              <h3 className="text-h3 text-text-dark mt-4">Elegant Accommodations</h3>
               <p className="text-body text-text-medium">
                 Call a corner of California wine country your own in exquisite
                 properties, from vineyard view estates to luxurious
@@ -171,15 +169,13 @@ export default function IntroSplit() {
               </Button>
             </div>
           </div>
-          <div className="relative aspect-[3/4] w-full overflow-hidden lg:mt-2xl">
-            <Image
-              src="/images/accommodations-balcony.jpg"
-              alt="Private balcony overlooking the vineyard"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-            />
-          </div>
+
+          <ParallaxImage
+            src="/images/accommodations-balcony.jpg"
+            alt="Private balcony overlooking the vineyard"
+            className="aspect-[3/4] w-full lg:mt-2xl"
+            intensity={130}
+          />
         </div>
       </Section>
 

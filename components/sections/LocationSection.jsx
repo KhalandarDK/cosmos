@@ -50,7 +50,7 @@ export default function LocationSection() {
           color:white;
           letter-spacing:1px;
           text-transform:uppercase;
-          opacity:0.8;
+          opacity:0.8;  
         ">
           Sarjapur
         </div>

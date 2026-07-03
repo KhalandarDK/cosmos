@@ -2,15 +2,22 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useReducedMotion,
+} from "framer-motion";
 
 export default function ParallaxImage({
   src,
   alt,
   className = "",
+  imageClassName = "",
   sizes = "(min-width: 1024px) 50vw, 100vw",
   priority = false,
-  intensity = 120, // total px of vertical travel
+  intensity = 100,
 }) {
   const containerRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
@@ -21,12 +28,17 @@ export default function ParallaxImage({
   });
 
   const range = prefersReducedMotion ? 0 : intensity / 2;
-  const y = useTransform(scrollYProgress, [0, 1], [-range, range]);
+  const rawY = useTransform(scrollYProgress, [0, 1], [-range, range]);
+  const y = useSpring(rawY, { stiffness: 80, damping: 20, mass: 0.5 });
+
+  // Only default to `relative` if the caller hasn't specified their own position utility
+  const hasPositionClass = /\b(relative|absolute|fixed|sticky)\b/.test(className);
+  const positionClass = hasPositionClass ? "" : "relative";
 
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden rounded-xl ${className}`}
+      className={`${positionClass} overflow-hidden ${className}`}
     >
       <motion.div
         style={{
@@ -42,7 +54,7 @@ export default function ParallaxImage({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover"
+          className={`object-cover ${imageClassName}`}
         />
       </motion.div>
     </div>

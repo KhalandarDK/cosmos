@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Section from "@/components/ui/Section";
 import ArrowLink from "@/components/ui/ArrowLink";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 
 export default function Since() {
   return (
@@ -21,16 +21,13 @@ export default function Since() {
         </div>
 
         {/* IMAGE SIDE */}
-        <div className="relative aspect-[4/5] w-full overflow-hidden sm:aspect-[16/10] lg:aspect-[4/5] lg:h-[70vh]">
-          <Image
-            src="/images/hero-image-2.png"
-            alt="Celebrating 26 years"
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover"
-            priority
-          />
-        </div>
+        <ParallaxImage
+          src="/images/hero-image-2.png"
+          alt="Celebrating 26 years"
+          className="aspect-[4/5] w-full sm:aspect-[16/10] lg:aspect-[4/5] lg:h-[70vh]"
+          priority
+          intensity={110}
+        />
       </div>
     </Section>
   );

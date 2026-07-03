@@ -54,7 +54,7 @@ export const properties = [
     slug: "cliffside-modern-retreat",
     name: "Cliffside Modern Retreat",
     type: "Waterfront Home",
-    location: "Big Sur, CA",
+    location: "Big Sur, CA", 
     price: "$15,750,000",
     beds: 4,
     baths: 5,
