@@ -1,12 +1,12 @@
 import Section from "@/components/ui/Section";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
-import PlaceholderImage from "@/components/ui/PlaceholderImage";
+import Map from "./Map";
 
 export const metadata = {
-  title: "Contact | Fortune  Cosmos",
+  title: "Contact | Fortune Cosmos",
   description:
-    "Get in touch with the Fortune  Cosmos advisory team to buy, sell, or schedule a private tour.",
+    "Get in touch with the Fortune Cosmos advisory team to buy, sell, or schedule a private tour.",
 };
 
 const offices = [
@@ -67,7 +67,7 @@ export default function ContactPage() {
           </form>
 
           <div className="flex flex-col gap-l">
-            <PlaceholderImage label="Regional office exterior" ratio="aspect-[4/3]" />
+            <Map />
             <div className="flex flex-col gap-4 border-t border-line-light pt-l">
               {offices.map((office) => (
                 <div key={office.city} className="flex items-center justify-between gap-4">

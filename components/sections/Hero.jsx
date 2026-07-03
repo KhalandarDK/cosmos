@@ -5,11 +5,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import ArrowLink from "@/components/ui/ArrowLink";
 
-/**
- * Hero background images, in crossfade order. Add/remove/reorder entries
- * here — everything else (timing, transition, priority loading) follows
- * automatically.
- */
+
 const HERO_IMAGES = [
   { src: "/images/hero-image-1.png", alt: "Aravalle Estates — estate exterior" },
   { src: "/images/hero-image-2.png", alt: "Aravalle Estates — vineyard grounds" },
@@ -20,17 +16,6 @@ const SLIDE_DURATION_MS = 6000;
 // How long the crossfade itself takes.
 const CROSSFADE_MS = 1200;
 
-/**
- * Hero
- * Sticky-pinned inside a taller outer wrapper; `--progress` (0 → 1) drives
- * the shrink/round/inset via .hero-reveal and the copy fade via
- * .hero-reveal .hero-copy, both in app/globals.css.
- *
- * Background is a crossfade slideshow between HERO_IMAGES. Both images are
- * always mounted, absolutely stacked, and the active one is toggled to
- * opacity-100 on an interval — Next/Image handles the loading/optimization,
- * the opacity transition handles the fade.
- */
 export default function Hero() {
   const outerRef = useRef(null);
   const containerRef = useRef(null);
