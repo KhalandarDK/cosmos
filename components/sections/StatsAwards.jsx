@@ -1,4 +1,5 @@
 import { stats } from "@/data/amenities";
+import CountUp from "@/components/ui/CountUp";
 
 export default function StatsAwards() {
   return (
@@ -7,7 +8,7 @@ export default function StatsAwards() {
         {stats.map((stat) => (
           <div key={stat.label} className="flex flex-col items-center gap-1 text-center">
             <span className="font-display text-h3 italic text-brand">
-              {stat.value}
+              <CountUp value={stat.value} />
             </span>
             <span className="text-footnote uppercase tracking-eyebrow text-text-medium">
               {stat.label}

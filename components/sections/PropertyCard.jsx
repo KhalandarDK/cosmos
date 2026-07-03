@@ -18,7 +18,7 @@ export default function PropertyCard({ property, className = "" }) {
             imageClassName="transition-transform duration-[900ms] ease-signature group-hover:scale-105"
             intensity={40}
           />
-        ) : (
+        ) : ( 
           <PlaceholderImage
             label={`${property.name} — Exterior`}
             ratio="aspect-[4/3]"

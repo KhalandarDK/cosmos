@@ -22,7 +22,7 @@ export const services = [
 ];
 
 export const stats = [
-  { value: "$2.4B+", label: "Property sold to date" },
+  { value: "$2.4B+", label: "Property sold to date" }, 
   { value: "420+", label: "Estates represented" },
   { value: "18", label: "Years in luxury real estate" },
   { value: "97%", label: "Clients who refer a friend" },

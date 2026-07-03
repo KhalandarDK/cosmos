@@ -38,6 +38,7 @@ export const properties = [
     description:
       "Set among heritage oaks, a low-slung contemporary build pairs board-formed concrete with warm American walnut and a courtyard pool.",
   },
+  
   {
     slug: "meadowbrook-farmhouse",
     name: "Meadowbrook Farmhouse",
@@ -47,6 +48,7 @@ export const properties = [
     beds: 4,
     baths: 4,
     sqft: "4,800",
+    image: "/images/property1.jpg",
     description:
       "A reimagined 1950s farmhouse on twelve acres, with a working orchard, barn studio, and a wraparound porch built for long evenings.",
   },
@@ -54,11 +56,12 @@ export const properties = [
     slug: "cliffside-modern-retreat",
     name: "Cliffside Modern Retreat",
     type: "Waterfront Home",
-    location: "Big Sur, CA", 
+    location: "Big Sur, CA",
     price: "$15,750,000",
     beds: 4,
     baths: 5,
     sqft: "5,600",
+    image: "/images/property2.jpg",
     description:
       "Cantilevered over the coastline, this glass-and-cedar retreat was designed around uninterrupted Pacific views from every room.",
   },
@@ -71,6 +74,7 @@ export const properties = [
     beds: 3,
     baths: 4,
     sqft: "3,150",
+    image: "/images/property3.jpg",
     description:
       "Part of a limited collection of eight residences, finished with white oak flooring, a chef's kitchen, and a private roof terrace.",
   },

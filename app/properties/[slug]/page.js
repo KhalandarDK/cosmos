@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Section from "@/components/ui/Section";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
 import { properties } from "@/data/properties";
 
@@ -13,7 +14,7 @@ export function generateMetadata({ params }) {
   const property = properties.find((p) => p.slug === params.slug);
   if (!property) return {};
   return {
-    title: `${property.name} | Fortune  Cosmos`,
+    title: `${property.name} | Fortune Cosmos`,
     description: property.description,
   };
 }
@@ -31,11 +32,22 @@ export default function PropertyDetailPage({ params }) {
 
   return (
     <>
-      <PlaceholderImage
-        label={`${property.name} — Hero exterior`}
-        ratio="aspect-[16/9]"
-        tone="brand"
-      />
+      {property.image ? (
+        <ParallaxImage
+          src={property.image}
+          alt={`${property.name} — Hero exterior`}
+          className="aspect-[16/9] w-full"
+          priority
+          intensity={120}
+        />
+      ) : (
+        <PlaceholderImage
+          label={`${property.name} — Hero exterior`}
+          ratio="aspect-[16/9]"
+          tone="brand"
+        />
+      )}
+
       <Section tone="main">
         <div className="grid gap-2xl lg:grid-cols-[2fr_1fr]">
           <div className="flex flex-col gap-l">
