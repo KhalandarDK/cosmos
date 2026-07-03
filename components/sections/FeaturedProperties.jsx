@@ -7,7 +7,7 @@ import { featuredProperties } from "@/data/properties";
 export default function FeaturedProperties() {
   return (
     <Section tone="accent">
-      <div className="flex flex-col gap-l">   
+      <div className="flex flex-col gap-l">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
             eyebrow="Current Listings"
@@ -15,9 +15,13 @@ export default function FeaturedProperties() {
           />
           <ArrowLink href="/properties">View all listings</ArrowLink>
         </div>
-        <div className="grid gap-x-8 gap-y-2xl sm:grid-cols-2 lg:grid-cols-3">
-          {featuredProperties.map((property) => (
-            <PropertyCard key={property.slug} property={property} />
+        <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
+          {featuredProperties.map((property, index) => (
+            <PropertyCard
+              key={property.slug}
+              property={property}
+              className={index === 0 ? "lg:row-span-2" : ""}
+            />
           ))}
         </div>
       </div>
