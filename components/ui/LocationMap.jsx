@@ -57,7 +57,7 @@ export default function LocationMap({
       map.current?.flyTo({
         center,
         zoom: flyZoom,
-        speed: 1.2,
+         speed: 1.2,
         curve: 1.4,
         essential: true,
       });
